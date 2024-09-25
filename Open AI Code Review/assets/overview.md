@@ -1,28 +1,34 @@
-# Open AI Code Review Extension
+# OpenAI PR Review Bot for Azure DevOps
 
-## Supercharge Your Code Reviews with Open AI
+Automate pull request (PR) reviews in Azure DevOps using OpenAI. This bot analyzes code changes, offers suggestions, detects potential bugs, and ensures adherence to coding standards. Streamline code reviews with customizable criteria and natural language feedback, improving code quality and reducing review time.
 
-Welcome to the Open AI Code Review Extension – your new ally in building top-notch software! This extension seamlessly integrates Open AI's powerful language models into your Azure DevOps pipeline, transforming code reviews into an intelligent and efficient process.
+## Key Features
 
-### Get Started Now!
+- **Automated PR Reviews**: Leverage OpenAI to analyze code changes in pull requests.
+- **Code Quality Suggestions**: Detect potential issues and ensure best practices are followed.
+- **Customizable Review Criteria**: Tailor the bot to specific code quality metrics.
+- **Azure DevOps Integration**: Seamlessly integrates with existing DevOps pipelines.
+- **Natural Language Feedback**: Provides human-readable, actionable feedback.
 
-Enhance your development workflow with Open AI Code Review. Start receiving intelligent and actionable insights on your code changes. Install the extension today and experience the future of code reviews!
+## Use Cases
 
-## Why Choose Open AI Code Review?
-
-- **Automated Code Reviews:** Say goodbye to manual code inspections! Let Open AI analyze your code changes, catching bugs, performance issues, and suggesting best practices.
-- **AI-Powered Insights:** Leverage the latest advancements in natural language processing to receive insightful comments on your pull requests.
-- **Faster Reviews:** Reduce the time spent on code reviews. Let Open AI handle the routine, allowing your team to focus on impactful work.
-- **Configurable and Customizable:** Tailor the extension to your needs with customizable settings. Specify the Open AI model, define file exclusions, and more.
+- **Automate Routine PR Tasks**: Speed up the code review process by automating common review tasks.
+- **Improve Code Quality**: Receive consistent, detailed feedback to enhance code quality.
+- **Early Bug Detection**: Help developers understand best practices and identify bugs early in the development cycle.
 
 ## Prerequisites
 
-- An [Open AI API Key](https://platform.openai.com/docs/overview)
+- An [OpenAI API Key](https://platform.openai.com/docs/overview)
 
-## Getting started
+## Getting Started
 
-1. Install the Open AI Code Review DevOps Extension.
-2. Add Open AI Code Review Task to Your Pipeline:
+1. **Install the AI Code Review DevOps Extension**
+
+   Install the AI Code Review DevOps extension from the Azure DevOps Marketplace.
+
+2. **Add the OpenAI Code Review Task to Your Pipeline**
+
+   Add the following YAML snippet to your pipeline configuration to set up the OpenAI code review task:
 
    ```yaml
    trigger:
@@ -36,45 +42,17 @@ Enhance your development workflow with Open AI Code Review. Start receiving inte
          - '*'
 
    jobs:
-   - job: CodeReview
-     pool:
-       vmImage: 'ubuntu-latest'
-     steps:
-     - task: OpenAICodeReviewTask@1
-       inputs:
-         api_key: $(OpenAI_ApiKey)
-         ai_model: 'gpt-3.5-turbo'
-         bugs: true
-         performance: true
-         best_practices: true
-         file_extensions: 'js,ts,css,html'
-         file_excludes: 'file1.js,file2.py,secret.txt'
-         additional_prompts: 'Fix variable naming, Ensure consistent indentation, Review error handling approach'`
-   
-3. If you do not already have Build Validation configured for your branch already add [Build validation](https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops&tabs=browser#build-validation) to your branch policy to trigger the code review when a Pull Request is created
-
+     - job: CodeReview
+       pool:
+         vmImage: 'ubuntu-latest'
+       steps:
+         - checkout: self
+           persistCredentials: true
+         - task: AICodeReview@1
+           inputs:
+             api_key: $(OpenAI_ApiKey)
 ## FAQ
-
-### Q: What agent job settings are required?
-
-A: Ensure that "Allow scripts to access OAuth token" is enabled as part of the agent job. Follow the [documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/options?view=azure-devops#allow-scripts-to-access-the-oauth-token) for more details.
-
-![Pipeline Permissions](assets/pipeline_permissions.png)
 
 ### Q: What permissions are required for Build Administrators?
 
 A: Build Administrators must be given "Contribute to pull requests" access. Check [this Stack Overflow answer](https://stackoverflow.com/a/57985733) for guidance on setting up permissions.
-
-![Repository Permissions](assets/pr_permissions.png)
-
-### Bug Reports
-
-If you find a bug or unexpected behavior, please [open a bug report](https://github.com/a1dancole/openai-code-review/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
-
-### Feature Requests
-
-If you have ideas for new features or enhancements, please [submit a feature request](https://github.com/a1dancole/openai-code-review/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=).
-
-## Learn More
-
-Visit our [GitHub repository](https://github.com/a1dancole/OpenAI-Code-Review) for additional documentation, updates, and support.
