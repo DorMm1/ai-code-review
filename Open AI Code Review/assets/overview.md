@@ -56,3 +56,7 @@ Automate pull request (PR) reviews in Azure DevOps using OpenAI. This bot analyz
 ### Q: What permissions are required for Build Administrators?
 
 A: Build Administrators must be given "Contribute to pull requests" access. Check [this Stack Overflow answer](https://stackoverflow.com/a/57985733) for guidance on setting up permissions.
+
+## Resources
+- [Marketplace Pipeline Extension](https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?toc=%2Fazure%2Fdevops%2Fmarketplace-extensibility%2Ftoc.json&view=azure-devops)
+- [Publisher Portal](https://marketplace.visualstudio.com/manage/publishers)

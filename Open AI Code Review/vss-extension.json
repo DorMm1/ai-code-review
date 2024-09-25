@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "aicr",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "name": "AI Code Review",
     "publisher": "EricWellnitz",
     "public": true,
@@ -10,7 +10,7 @@
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
-    "description": "Integrate Open AI for automated code reviews in Azure DevOps Pull Requests. Enhance code quality and improve review efficiency.",
+    "description": "Automate pull request reviews in Azure DevOps using OpenAI. This bot analyzes code changes, offers suggestions, detects potential bugs, and ensures adherence to coding standards.",
     "categories": [
         "Azure Pipelines"
     ],
