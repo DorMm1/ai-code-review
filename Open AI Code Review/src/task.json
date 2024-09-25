@@ -1,11 +1,11 @@
 {
     "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
     "id": "abd1f390-3d55-4eb2-af0a-273c5dbf256f",
-    "name": "OpenAICodeReview",
-    "friendlyName": "Open AI Code Review",
+    "name": "AICodeReview",
+    "friendlyName": "AI Code Review",
     "description": "Complete a Code Review using Open AI",
     "category": "Utility",
-    "author": "Aidan Cole",
+    "author": "Eric Wellnitz",
     "version": {
         "Major": 1,
         "Minor": 0,
