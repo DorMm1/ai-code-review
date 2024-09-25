@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
-    "id": "oaicr",
-    "version": "1.0.0",
+    "id": "aicr",
+    "version": "1.0.1",
     "name": "AI Code Review",
     "publisher": "EricWellnitz",
     "public": true,
