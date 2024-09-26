@@ -24,6 +24,7 @@ export class ChatGPT {
     public async PerformCodeReview(diff: string, fileName: string): Promise<string> {
 
         let model = tl.getInput('ai_model', true) as | (string & {})
+            | 'gpt-4o'
             | 'gpt-4-1106-preview'
             | 'gpt-4-vision-preview'
             | 'gpt-4'
