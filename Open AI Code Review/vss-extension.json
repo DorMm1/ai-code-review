@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "mbt-ai-codereview",
-    "version": "1.0.4",
+    "version": "1.0.6",
     "name": "MBT AI CodeReview",
     "publisher": "Dor Menahem",
     "public": true,
