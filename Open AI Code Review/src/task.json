@@ -3,7 +3,7 @@
     "id": "e7b8f8a1-4a5b-4d3e-9b2f-1c3d5e7f8a9b",
     "name": "AICodeReview",
     "friendlyName": "AI Code Review",
-    "description": "Complete a Code Review using Open AI",
+    "description": "Complete a Code Review using a Custom AI Model API",
     "category": "Utility",
     "author": "Eric Wellnitz",
     "version": {
@@ -14,12 +14,20 @@
     "instanceNameFormat": "Open AI Code Review $(message)",
     "inputs": [
         {
-            "name": "api_key",
+            "name": "api_url",
             "type": "string",
-            "label": "Open AI API Key",
+            "label": "API URL",
             "defaultValue": "",
             "required": true,
-            "helpMarkDown": "API Key for Open AI API. "
+            "helpMarkDown": "Endpoint URL for the AI model API (expects POST)."
+        },
+        {
+            "name": "api_key",
+            "type": "string",
+            "label": "API Key",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "API key sent as a Bearer token in Authorization header."
         },
         {
             "name": "ai_model",
@@ -42,7 +50,7 @@
                 "gpt-3.5-turbo-0613": "gpt-3.5-turbo-0613",
                 "gpt-3.5-turbo-16k-0613": "gpt-3.5-turbo-16k-0613"
             },
-            "helpMarkDown": "## OpenAI API Model Configuration\n\n### Description\nChoose the Open AI API model for code analysis. The selected model determines the depth and capabilities of the code review performed by Open AI.\n\n### Options\n- **gpt-4-1106-preview:** Preview version of GPT-4 released on June 11, 202x.\n- **gpt-4-vision-preview:** Preview version of GPT-4 with enhanced vision capabilities.\n- **gpt-4:** Latest stable release of GPT-4.\n- **gpt-4-0314:** GPT-4 version released on March 14, 202x.\n- **gpt-4-0613:** GPT-4 version released on June 13, 202x.\n- **gpt-4-32k:** GPT-4 version with a 32k parameter size.\n- **gpt-4-32k-0314:** GPT-4 version with 32k parameters, released on March 14, 202x.\n- **gpt-4-32k-0613:** GPT-4 version with 32k parameters, released on June 13, 202x.\n- **gpt-3.5-turbo-1106:** Preview version of GPT-3.5 Turbo released on November 6, 202x.\n- **gpt-3.5-turbo:** Latest stable release of GPT-3.5 Turbo.\n- **gpt-3.5-turbo-16k:** GPT-3.5 Turbo version with a 16k parameter size.\n- **gpt-3.5-turbo-0301:** GPT-3.5 Turbo version released on March 1, 202x.\n- **gpt-3.5-turbo-0613:** GPT-3.5 Turbo version released on June 13, 202x.\n- **gpt-3.5-turbo-16k-0613:** GPT-3.5 Turbo version with 16k parameters, released on June 13, 202x.\n\n### Default Value\nThe default Open AI API model is set to **gpt-3.5-turbo**.\n\n Choose the model that best suits your code review requirements."
+            "helpMarkDown": "Choose the model (retained for compatibility)."
         },
         {
             "name": "bugs",
@@ -71,7 +79,7 @@
             "label": "File Extensions",
             "defaultValue": "",
             "required": false,
-            "helpMarkDown": "Specify a comma-separated list of file extensions for which you want to perform a code review. This input helps narrow down the scope of the code review to specific file types.\n\n**Example:**\n```plaintext\n\".js,.ts,.css,.html\"\n```\n\nMake sure to provide the file extensions without spaces after the commas."
+            "helpMarkDown": "Specify a comma-separated list of file extensions for which you want to perform a code review."
         },
         {
             "name": "file_excludes",
@@ -79,7 +87,7 @@
             "label": "Files to exclude",
             "defaultValue": "",
             "required": false,
-            "helpMarkDown": "## Files to Exclude Configuration\n\n### Description\nSpecify a comma-separated list of file names that should be excluded from code reviews. This is useful for excluding sensitive files or preventing certain files from being reviewed.\n\n### Format\nProvide a list of file names separated by commas. For example: `file1.js, file2.py, secret.txt`\n\n### Default Value\nIf no files are specified, all files will be considered for code review by default."
+            "helpMarkDown": "Comma-separated list of file names to exclude from review."
         },
         {
             "name": "additional_prompts",
@@ -87,7 +95,7 @@
             "label": "Additional Prompts",
             "defaultValue": "",
             "required": false,
-            "helpMarkDown": "Specify additional Open AI prompts as a comma-separated list to enhance the code review process.\n\n- Add multiple prompts separated by commas.\n- These prompts will be used in conjunction with the main code review prompts.\n\n**Example:**\n```plaintext\nFix variable naming, Ensure consistent indentation, Review error handling approach\n```"
+            "helpMarkDown": "Additional prompts as a comma-separated list to enhance the review."
         }
     ],
     "execution": {

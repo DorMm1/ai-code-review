@@ -10,15 +10,15 @@
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
-    "description": "Automate pull request reviews in Azure DevOps using OpenAI. This bot analyzes code changes, offers suggestions, detects potential bugs, and ensures adherence to coding standards.",
+    "description": "Automate pull request reviews in Azure DevOps using a custom AI model API. This bot analyzes code changes, offers suggestions, detects potential bugs, and ensures adherence to coding standards.",
     "categories": [
         "Azure Pipelines"
     ],
     "tags": [
         "Code Analysis",
-        "Open AI",
+        "Custom AI Model",
         "Code Quality",
-        "ChatGPT",
+        "AI API",
         "Quality Assurance",
         "Pull Request",
         "Pipeline",
