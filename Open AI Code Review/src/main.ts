@@ -1,4 +1,4 @@
-import tl = require('azure-pipelines-task-lib/task');
+import * as tl from 'azure-pipelines-task-lib/task';
 import { CustomModelApi } from './customModelApi';
 import { Repository } from './repository';
 import { PullRequest } from './pullrequest';
@@ -14,7 +14,7 @@ export class Main {
             return;
         }
 
-        if(!tl.getVariable('System.AccessToken')) {
+        if (!tl.getVariable('System.AccessToken')) {
             tl.setResult(tl.TaskResult.Failed, "'Allow Scripts to Access OAuth Token' must be enabled. See https://learn.microsoft.com/en-us/azure/devops/pipelines/build/options?view=azure-devops#allow-scripts-to-access-the-oauth-token for more information");
             return;
         }
@@ -24,7 +24,7 @@ export class Main {
         const fileExtensions = tl.getInput('file_extensions', false);
         const filesToExclude = tl.getInput('file_excludes', false);
         const additionalPrompts = tl.getInput('additional_prompts', false)?.split(',')
-        
+
         this._customModelApi = new CustomModelApi(apiUrl, apiKey, tl.getBoolInput('bugs', true), tl.getBoolInput('performance', true), tl.getBoolInput('best_practices', true), additionalPrompts);
         this._repository = new Repository();
         this._pullRequest = new PullRequest();
@@ -40,7 +40,7 @@ export class Main {
             let diff = await this._repository.GetDiff(fileToReview);
             let review = await this._customModelApi.PerformCodeReview(diff, fileToReview);
 
-            if(review.indexOf('NO_COMMENT') < 0) {
+            if (review.indexOf('NO_COMMENT') < 0) {
                 await this._pullRequest.AddComment(fileToReview, review);
             }
 
