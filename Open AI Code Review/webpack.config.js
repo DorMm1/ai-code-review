@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	mode: 'production',
-	target: 'web',
+	target: 'node',
 	entry: path.resolve(__dirname, 'src/main.ts'),
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -12,14 +12,6 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.ts', '.js', '.json'],
-		alias: {
-			'node:events': 'events',
-			'node:fs': 'fs',
-			'node:path': 'path',
-			'node:util': 'util',
-			'node:buffer': 'buffer',
-			'node:child_process': 'child_process'
-		}
 	},
 	module: {
 		rules: [
@@ -39,6 +31,6 @@ module.exports = {
 		})
 	],
 	experiments: {
-			topLevelAwait: true
+		topLevelAwait: true
 	}
 };
