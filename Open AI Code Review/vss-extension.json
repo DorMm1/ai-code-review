@@ -53,7 +53,7 @@
     },
     "files": [
         {
-            "path": "src"
+            "path": "dist"
         },
         {
             "path": "assets/overview.md",
@@ -72,7 +72,7 @@
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "src"
+                "name": "dist"
             }
         }
     ]

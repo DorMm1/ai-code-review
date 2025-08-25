@@ -6,7 +6,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "types": ["node"],
+    //"types": ["node"],
     "resolveJsonModule": true
   },
   "include": ["**/*.ts", "**/*.json", "types/**/*.d.ts"],

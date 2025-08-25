@@ -100,10 +100,10 @@
     ],
     "execution": {
         "Node10": {
-            "target": "main.js"
+            "target": "dist/main.js"
         },
         "Node16": {
-            "target": "main.js"
+            "target": "dist/main.js"
         }
     }
 }
