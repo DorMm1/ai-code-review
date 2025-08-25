@@ -15,12 +15,13 @@
     "azure-pipelines-task-lib": "^4.7.0",
     "gpt-tokenizer": "^2.1.2",
     "node-fetch": "^2.7.0",
-    "simple-git": "^3.21.0"
+    "simple-git": "^3.21.0",
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "^20.10.3",
-    "@types/q": "^1.5.8",
-    "@types/node-fetch": "^2.6.11"
+    "@types/node-fetch": "^2.6.11",
+    "@types/q": "^1.5.8"
   }
 }
