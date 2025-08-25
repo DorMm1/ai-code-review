@@ -1,0 +1,30 @@
+trigger:
+  branches:
+    exclude:
+    - '*'
+
+pr:
+  branches:
+    include:
+    - '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: PR_Checks
+  displayName: PR Checks
+  jobs:
+  - job: AI_CodeReview
+    displayName: MBT AI CodeReview
+    steps:
+    - template: pipelines/templates/ai-code-review.yml
+      parameters:
+        apiUrl: $(CustomAI_ApiUrl)
+        apiKey: $(CustomAI_ApiKey)
+        bugs: true
+        performance: true
+        bestPractices: true
+        fileExtensions: '.ts,.js,.cs,.py'
+        fileExcludes: ''
+        additionalPrompts: 'Check for security vulnerabilities, Ensure proper error handling'
